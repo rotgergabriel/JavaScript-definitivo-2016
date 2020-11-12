@@ -1,0 +1,29 @@
+{
+  "name": "javascript-definitivo-2016",
+  "version": "0.1.0",
+  "description": "Version de estudio",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rotgergabriel/JavaScript-definitivo-2016.git"
+  },
+  "keywords": [
+    "Js",
+    "definitivo",
+    "2016"
+  ],
+  "author": "Rotger Gabriel Augusto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rotgergabriel/JavaScript-definitivo-2016/issues"
+  },
+  "homepage": "https://github.com/rotgergabriel/JavaScript-definitivo-2016#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "materialize-css": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0"
+  }
+}
