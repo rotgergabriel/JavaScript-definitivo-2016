@@ -1,11 +1,19 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
-gulp.task('styles', function() {
-    gulp
-        .src('index.scss')
-        .pipe(sass())
+
+gulp.task('styles', function () {
+    return gulp.src('index.scss')
+        .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(gulp.dest('public'));
 })
 
-gulp.task('default', ['styles'])
+// gulp.task('styles', function() {
+//     gulp
+//         .src('index.scss')
+//         .pipe(sass())
+//         .pipe(gulp.dest('public'));
+// })
+
+gulp.task('default', gulp.series('styles'))
+
