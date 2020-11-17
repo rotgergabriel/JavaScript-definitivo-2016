@@ -4,7 +4,6 @@ var rename = require('gulp-rename');
 var babel = require('babelify');
 browserify = require('browserify');
 var source = require('vinyl-source-stream');
-const { json } = require('express');
 
 
 gulp.task('styles', function () {
