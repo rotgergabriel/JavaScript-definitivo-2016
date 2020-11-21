@@ -8739,3 +8739,7 @@ body {
 .card.liked .fa-heart-o {
   display: none;
 }
+
+.username {
+  font-size: 0.7em;
+}

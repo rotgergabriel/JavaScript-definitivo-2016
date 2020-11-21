@@ -153,7 +153,7 @@ module.exports = hyperx(belCreateElement, {comments: true})
 module.exports.default = module.exports
 module.exports.createElement = belCreateElement
 
-},{"global/document":4,"hyperx":7,"on-load":11}],2:[function(require,module,exports){
+},{"global/document":4,"hyperx":7,"on-load":12}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
 /* global HTMLElement */
@@ -527,6 +527,125 @@ var closeRE = RegExp('^(' + [
 function selfClosing (tag) { return closeRE.test(tag) }
 
 },{"hyperscript-attribute-to-property":6}],8:[function(require,module,exports){
+//! moment.js locale configuration
+//! locale : Spanish [es]
+//! author : Julio Napurí : https://github.com/julionc
+
+;(function (global, factory) {
+   typeof exports === 'object' && typeof module !== 'undefined'
+       && typeof require === 'function' ? factory(require('../moment')) :
+   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+   factory(global.moment)
+}(this, (function (moment) { 'use strict';
+
+    //! moment.js locale configuration
+
+    var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split(
+            '_'
+        ),
+        monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_'),
+        monthsParse = [
+            /^ene/i,
+            /^feb/i,
+            /^mar/i,
+            /^abr/i,
+            /^may/i,
+            /^jun/i,
+            /^jul/i,
+            /^ago/i,
+            /^sep/i,
+            /^oct/i,
+            /^nov/i,
+            /^dic/i,
+        ],
+        monthsRegex = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i;
+
+    var es = moment.defineLocale('es', {
+        months: 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split(
+            '_'
+        ),
+        monthsShort: function (m, format) {
+            if (!m) {
+                return monthsShortDot;
+            } else if (/-MMM-/.test(format)) {
+                return monthsShort[m.month()];
+            } else {
+                return monthsShortDot[m.month()];
+            }
+        },
+        monthsRegex: monthsRegex,
+        monthsShortRegex: monthsRegex,
+        monthsStrictRegex: /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,
+        monthsShortStrictRegex: /^(ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i,
+        monthsParse: monthsParse,
+        longMonthsParse: monthsParse,
+        shortMonthsParse: monthsParse,
+        weekdays: 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
+        weekdaysShort: 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
+        weekdaysMin: 'do_lu_ma_mi_ju_vi_sá'.split('_'),
+        weekdaysParseExact: true,
+        longDateFormat: {
+            LT: 'H:mm',
+            LTS: 'H:mm:ss',
+            L: 'DD/MM/YYYY',
+            LL: 'D [de] MMMM [de] YYYY',
+            LLL: 'D [de] MMMM [de] YYYY H:mm',
+            LLLL: 'dddd, D [de] MMMM [de] YYYY H:mm',
+        },
+        calendar: {
+            sameDay: function () {
+                return '[hoy a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+            },
+            nextDay: function () {
+                return '[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+            },
+            nextWeek: function () {
+                return 'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+            },
+            lastDay: function () {
+                return '[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+            },
+            lastWeek: function () {
+                return (
+                    '[el] dddd [pasado a la' +
+                    (this.hours() !== 1 ? 's' : '') +
+                    '] LT'
+                );
+            },
+            sameElse: 'L',
+        },
+        relativeTime: {
+            future: 'en %s',
+            past: 'hace %s',
+            s: 'unos segundos',
+            ss: '%d segundos',
+            m: 'un minuto',
+            mm: '%d minutos',
+            h: 'una hora',
+            hh: '%d horas',
+            d: 'un día',
+            dd: '%d días',
+            w: 'una semana',
+            ww: '%d semanas',
+            M: 'un mes',
+            MM: '%d meses',
+            y: 'un año',
+            yy: '%d años',
+        },
+        dayOfMonthOrdinalParse: /\d{1,2}º/,
+        ordinal: '%dº',
+        week: {
+            dow: 1, // Monday is the first day of the week.
+            doy: 4, // The week that contains Jan 4th is the first week of the year.
+        },
+        invalidDate: 'Fecha inválida',
+    });
+
+    return es;
+
+})));
+
+},{"../moment":9}],9:[function(require,module,exports){
 //! moment.js
 //! version : 2.29.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -6198,7 +6317,7 @@ function selfClosing (tag) { return closeRE.test(tag) }
 
 })));
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 var DOCUMENT_FRAGMENT_NODE = 11;
@@ -6957,7 +7076,7 @@ var morphdom = morphdomFactory(morphAttrs);
 
 module.exports = morphdom;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 assert.notEqual = notEqual
 assert.notOk = notOk
 assert.equal = equal
@@ -6981,7 +7100,7 @@ function assert (t, m) {
   if (!t) throw new Error(m || 'AssertionError')
 }
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /* global MutationObserver */
 var document = require('global/document')
 var window = require('global/window')
@@ -7085,7 +7204,7 @@ function eachMutation (nodes, fn) {
   }
 }
 
-},{"assert":10,"global/document":4,"global/window":5}],12:[function(require,module,exports){
+},{"assert":11,"global/document":4,"global/window":5}],13:[function(require,module,exports){
 (function (process){(function (){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -8313,7 +8432,7 @@ return page_js;
 })));
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":13}],13:[function(require,module,exports){
+},{"_process":14}],14:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -8499,7 +8618,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 // Utilities
 const lowerCase = require('./lower-case')
 const specials = require('./specials')
@@ -8552,7 +8671,7 @@ module.exports = (str, options = {}) => {
   return str
 }
 
-},{"./lower-case":15,"./specials":16}],15:[function(require,module,exports){
+},{"./lower-case":16,"./specials":17}],16:[function(require,module,exports){
 const conjunctions = [
   'for',
   'and',
@@ -8647,7 +8766,7 @@ module.exports = new Set([
   ...prepositions
 ])
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 const intended = [
   'ZEIT',
   'ZEIT Inc.',
@@ -8678,7 +8797,7 @@ const intended = [
 
 module.exports = intended
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var bel = require('bel') // turns template tag into DOM elements
 var morphdom = require('morphdom') // efficiently diffs + morphs two DOM elements
 var defaultEvents = require('./update-events.js') // default events to be copied when dom elements update
@@ -8722,7 +8841,7 @@ module.exports.update = function (fromNode, toNode, opts) {
   }
 }
 
-},{"./update-events.js":18,"bel":1,"morphdom":9}],18:[function(require,module,exports){
+},{"./update-events.js":19,"bel":1,"morphdom":10}],19:[function(require,module,exports){
 module.exports = [
   // attribute events (can be set with attributes)
   'onclick',
@@ -8760,7 +8879,7 @@ module.exports = [
   'onfocusout'
 ]
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -8768,30 +8887,12 @@ var empty = require('empty-element');
 var template = require('./template');
 var title = require('title');
 
-var main = document.getElementById('main-container');
-
 page('/', function (ctx, next) {
     title('Platzigram');
 
+    var main = document.getElementById('main-container');
+
     var picture = [{
-        user: {
-            username: 'Gabriel Augusto Rotger',
-            avatar: 'https://media.istockphoto.com/vectors/man-avatar-business-angry-cartoon-illustration-vector-vector-id1277332892'
-        },
-        url: 'https://materializecss.com/images/office.jpg',
-        likes: 0,
-        liked: false,
-        createdAt: new Date()
-    }, {
-        user: {
-            username: 'Gabriel Augusto Rotger',
-            avatar: 'https://media.istockphoto.com/vectors/man-avatar-business-angry-cartoon-illustration-vector-vector-id1277332892'
-        },
-        url: 'https://materializecss.com/images/office.jpg',
-        likes: 0,
-        liked: false,
-        createdAt: new Date()
-    }, {
         user: {
             username: 'Gabriel Augusto Rotger',
             avatar: 'https://media.istockphoto.com/vectors/man-avatar-business-angry-cartoon-illustration-vector-vector-id1277332892'
@@ -8811,10 +8912,10 @@ page('/', function (ctx, next) {
         createdAt: new Date().setDate(new Date().getDate() - 10)
     }];
 
-    empty(main).appendChild(template(picture));main - container;
+    empty(main).appendChild(template(picture)); //main-container
 });
 
-},{"./template":20,"empty-element":3,"page":12,"title":14}],20:[function(require,module,exports){
+},{"./template":21,"empty-element":3,"page":13,"title":15}],21:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['<div class="container timeline">\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l6 offset-l3">\n                ', '\n            </div>\n        </div>\n    </div>'], ['<div class="container timeline">\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l6 offset-l3">\n                ', '\n            </div>\n        </div>\n    </div>']);
@@ -8833,10 +8934,14 @@ module.exports = function (pictures) {
     return layout(el);
 };
 
-},{"../layout":23,"../picture-card":24,"yo-yo":17}],21:[function(require,module,exports){
+},{"../layout":24,"../picture-card":25,"yo-yo":18}],22:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
+var moment = require('moment');
+require('moment/locale/es');
+
+moment.locale('es');
 
 require('./homepage');
 require('./signup');
@@ -8844,7 +8949,7 @@ require('./signin');
 
 page();
 
-},{"./homepage":19,"./signin":25,"./signup":27,"page":12}],22:[function(require,module,exports){
+},{"./homepage":20,"./signin":26,"./signup":28,"moment":9,"moment/locale/es":8,"page":13}],23:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['<div class="container landing">\n                            <div class="row">\n                                <div class="col s10 push-s1">\n                                    <div class="row">\n                                        <div class="col m5 hide-on-small-only">\n                                        <img class="iphone" src="iphone.png" />\n                                        </div>\n                                        ', '\n                                    </div>\n                                </div>\n                            </div>\n                        </div>'], ['<div class="container landing">\n                            <div class="row">\n                                <div class="col s10 push-s1">\n                                    <div class="row">\n                                        <div class="col m5 hide-on-small-only">\n                                        <img class="iphone" src="iphone.png" />\n                                        </div>\n                                        ', '\n                                    </div>\n                                </div>\n                            </div>\n                        </div>']);
@@ -8857,31 +8962,43 @@ module.exports = function landing(box) {
     return yo(_templateObject, box);
 };
 
-},{"yo-yo":17}],23:[function(require,module,exports){
+},{"yo-yo":18}],24:[function(require,module,exports){
 'use strict';
+
+var _templateObject = _taggedTemplateLiteral(['<div>\n                    <nav class="header">\n                        <div class="nav-wrapper">\n                            <div class="container">\n                                <div class="row">\n                                    <div class="col s12 m6 offset-m1">\n                                        <a href="/" class="brand-logo platzigram">Platzigram</a>\n                                    </div>\n                                    <div class="col s2 m6 push-s10 push-m10">\n                                        <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">\n                                            <i class="fa fa-user" aria-hidden="true"></i>\n                                        </a>\n                                        <ul id="drop-user" class="dropdown-content">\n                                            <li><a href="#">Salir</a></li>\n                                        </ul>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </nav> \n                    <div class="content">\n                        ', '\n                    </div>\n            </div>'], ['<div>\n                    <nav class="header">\n                        <div class="nav-wrapper">\n                            <div class="container">\n                                <div class="row">\n                                    <div class="col s12 m6 offset-m1">\n                                        <a href="/" class="brand-logo platzigram">Platzigram</a>\n                                    </div>\n                                    <div class="col s2 m6 push-s10 push-m10">\n                                        <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">\n                                            <i class="fa fa-user" aria-hidden="true"></i>\n                                        </a>\n                                        <ul id="drop-user" class="dropdown-content">\n                                            <li><a href="#">Salir</a></li>\n                                        </ul>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </nav> \n                    <div class="content">\n                        ', '\n                    </div>\n            </div>']);
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var yo = require('yo-yo');
 
 module.exports = function layout(content) {
-    return '<div>\n                    <nav class="header">\n                        <div class="nav-wrapper">\n                            <div class="container">\n                                <div class="row">\n                                    <div class="col s12 m6 offset-m1">\n                                        <a href="/" class="brand-logo platzigram">Platzigram</a>\n                                    </div>\n                                    <div class="col s2 m6 push-s10 push-m10">\n                                        <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">\n                                            <i class="fa fa-user" aria-hidden="true"></i>\n                                        </a>\n                                        <ul id="drop-user" class="dropdown-content">\n                                            <li><a href="#">Salir</a></li>\n                                        </ul>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </nav> \n                    <div class="content">\n                        ' + content + '\n                    </div>\n            </div>';
+    return yo(_templateObject, content);
 };
 
-},{"yo-yo":17}],24:[function(require,module,exports){
+},{"yo-yo":18}],25:[function(require,module,exports){
 'use strict';
 
-var _templateObject = _taggedTemplateLiteral(['<div class="card ', '">\n            <div class="card-image waves-effect waves-block waves-light">\n                <img class="activator" src="', '" />\n            </div>\n            <div class="card-content">\n                <a href="/user/', '" class="card-title">\n                    <img src="', '" class="avatar" />\n                    <span class="username">', '</span>\n                </a>\n                <small class="right time">\'', '\'</small>\n                <p>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n                    <span class="left likes">', ' me gusta</span>\n                </p>\n            </div>\n        </div>'], ['<div class="card ', '">\n            <div class="card-image waves-effect waves-block waves-light">\n                <img class="activator" src="', '" />\n            </div>\n            <div class="card-content">\n                <a href="/user/', '" class="card-title">\n                    <img src="', '" class="avatar" />\n                    <span class="username">', '</span>\n                </a>\n                <small class="right time">\'', '\'</small>\n                <p>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n                    <span class="left likes">', ' me gusta</span>\n                </p>\n            </div>\n        </div>']);
+var _templateObject = _taggedTemplateLiteral(['<div class="card ', '">\n            <div class="card-image waves-effect waves-block waves-light">\n                <img class="activator" src="', '" />\n            </div>\n            <div class="card-content">\n                <a href="/user/', '" class="card-title">\n                    <img src="', '" class="avatar" />\n                    <span class="username">', '</span>\n                </a>\n                <small class="right time">', '</small>\n                <p>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n                    <span class="left likes">', ' me gusta</span>\n                </p>\n            </div>\n        </div>'], ['<div class="card ', '">\n            <div class="card-image waves-effect waves-block waves-light">\n                <img class="activator" src="', '" />\n            </div>\n            <div class="card-content">\n                <a href="/user/', '" class="card-title">\n                    <img src="', '" class="avatar" />\n                    <span class="username">', '</span>\n                </a>\n                <small class="right time">', '</small>\n                <p>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n                    <span class="left likes">', ' me gusta</span>\n                </p>\n            </div>\n        </div>']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var yo = require('yo-yo');
 var moment = require('moment');
+// var IntlRelativeFormat = window.IntlRelativeFormat = require('intl-relativeformat');
+
+// import 'intl-relativeformat/dist/locale-date/en.js';
+// import 'intl-relativeformat/dist/locale-date/es.js';
+
+// var rf = new IntlRelativeFormat('es');
+// var output = rf.format(dateValue);
+
 
 module.exports = function (pic) {
 
     var el;
 
     function render(picture) {
-        return yo(_templateObject, picture.liked ? 'liked' : '', picture.url, picture.user.username, picture.user.avatar, picture.user.username, picture.createdAt, like.bind(null, true), like.bind(null, false), picture.likes);
+        return yo(_templateObject, picture.liked ? 'liked' : '', picture.url, picture.user.username, picture.user.avatar, picture.user.username, moment(picture.createdAt).fromNow(), like.bind(null, true), like.bind(null, false), picture.likes);
     }
 
     function like(liked) {
@@ -8896,7 +9013,7 @@ module.exports = function (pic) {
     return el;
 };
 
-},{"moment":8,"yo-yo":17}],25:[function(require,module,exports){
+},{"moment":9,"yo-yo":18}],26:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -8910,7 +9027,7 @@ page('/signin', function (ctx, next) {
     empty(main).appendChild(template);
 });
 
-},{"./template":26,"empty-element":3,"page":12,"title":14}],26:[function(require,module,exports){
+},{"./template":27,"empty-element":3,"page":13,"title":15}],27:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['<div class="col s12 m7">\n                                <div class="row">\n                                    <div class="signup-box">\n                                    <h1 class="platzigram">Platzigram</h1>\n                                    <form class="signup-form">\n                                        <div class="section">\n                                        <a class="btn btn-fb hide-on-small-only">Iniciar sesi\xF3n con Facebook</a>\n                                        <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>Iniciar sesi\xF3n</a>\n                                        </div>\n                                        <div class="divider"></div>\n                                        <div class="section">\n                                        <input type="text" name="username" placeholder="Nombre de usuario"/>\n                                        <input type="password" name="password" placeholder="Contrase\xF1a"/>\n                                        <button class="btn waves-effect waves-light btn-signup" type="submit">Inicia Sesion</button>\n                                        </div>\n                                    </form>\n                                    </div>\n                                </div>\n                                <div class="row">\n                                    <div class="login-box">\n                                    \xBFNo Tienes una cuenta? <a href="/signup">Reg\xEDstrate</a>\n                                    </div>\n                                </div>\n                                </div>'], ['<div class="col s12 m7">\n                                <div class="row">\n                                    <div class="signup-box">\n                                    <h1 class="platzigram">Platzigram</h1>\n                                    <form class="signup-form">\n                                        <div class="section">\n                                        <a class="btn btn-fb hide-on-small-only">Iniciar sesi\xF3n con Facebook</a>\n                                        <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>Iniciar sesi\xF3n</a>\n                                        </div>\n                                        <div class="divider"></div>\n                                        <div class="section">\n                                        <input type="text" name="username" placeholder="Nombre de usuario"/>\n                                        <input type="password" name="password" placeholder="Contrase\xF1a"/>\n                                        <button class="btn waves-effect waves-light btn-signup" type="submit">Inicia Sesion</button>\n                                        </div>\n                                    </form>\n                                    </div>\n                                </div>\n                                <div class="row">\n                                    <div class="login-box">\n                                    \xBFNo Tienes una cuenta? <a href="/signup">Reg\xEDstrate</a>\n                                    </div>\n                                </div>\n                                </div>']);
@@ -8924,7 +9041,7 @@ var signinForm = yo(_templateObject);
 
 module.exports = landing(signinForm);
 
-},{"../landing":22,"yo-yo":17}],27:[function(require,module,exports){
+},{"../landing":23,"yo-yo":18}],28:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -8938,7 +9055,7 @@ page('/signup', function (ctx, next) {
     empty(main).appendChild(template);
 });
 
-},{"./template":28,"empty-element":3,"page":12,"title":14}],28:[function(require,module,exports){
+},{"./template":29,"empty-element":3,"page":13,"title":15}],29:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['<div class="col s12 m7">\n                                <div class="row">\n                                    <div class="signup-box">\n                                    <h1 class="platzigram">Platzigram</h1>\n                                    <form class="signup-form">\n                                        <h2>Reg\xEDstrate para ver fotos de tus amigos estudiando en Platzi</h2>\n                                        <div class="section">\n                                        <a class="btn btn-fb hide-on-small-only">Iniciar sesi\xF3n con Facebook</a>\n                                        <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>Iniciar sesi\xF3n</a>\n                                        </div>\n                                        <div class="divider"></div>\n                                        <div class="section">\n                                        <input type="email" name="email" placeholder="Correo electr\xF3nico"/>\n                                        <input type="text" name="name" placeholder="Nombre completo"/>\n                                        <input type="text" name="username" placeholder="Nombre de usuario"/>\n                                        <input type="password" name="password" placeholder="Contrase\xF1a"/>\n                                        <button class="btn waves-effect waves-light btn-signup" type="submit">Reg\xEDstrate</button>\n                                        </div>\n                                    </form>\n                                    </div>\n                                </div>\n                                <div class="row">\n                                    <div class="login-box">\n                                    \xBFTienes una cuenta? <a href="/signin">Entrar</a>\n                                    </div>\n                                </div>\n                                </div>'], ['<div class="col s12 m7">\n                                <div class="row">\n                                    <div class="signup-box">\n                                    <h1 class="platzigram">Platzigram</h1>\n                                    <form class="signup-form">\n                                        <h2>Reg\xEDstrate para ver fotos de tus amigos estudiando en Platzi</h2>\n                                        <div class="section">\n                                        <a class="btn btn-fb hide-on-small-only">Iniciar sesi\xF3n con Facebook</a>\n                                        <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>Iniciar sesi\xF3n</a>\n                                        </div>\n                                        <div class="divider"></div>\n                                        <div class="section">\n                                        <input type="email" name="email" placeholder="Correo electr\xF3nico"/>\n                                        <input type="text" name="name" placeholder="Nombre completo"/>\n                                        <input type="text" name="username" placeholder="Nombre de usuario"/>\n                                        <input type="password" name="password" placeholder="Contrase\xF1a"/>\n                                        <button class="btn waves-effect waves-light btn-signup" type="submit">Reg\xEDstrate</button>\n                                        </div>\n                                    </form>\n                                    </div>\n                                </div>\n                                <div class="row">\n                                    <div class="login-box">\n                                    \xBFTienes una cuenta? <a href="/signin">Entrar</a>\n                                    </div>\n                                </div>\n                                </div>']);
@@ -8952,4 +9069,4 @@ var signupForm = yo(_templateObject);
 
 module.exports = landing(signupForm);
 
-},{"../landing":22,"yo-yo":17}]},{},[21]);
+},{"../landing":23,"yo-yo":18}]},{},[22]);
