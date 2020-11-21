@@ -8984,6 +8984,13 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 var yo = require('yo-yo');
 var moment = require('moment');
+
+// if (!window.Intl) {
+//     window.Intl = require('intl');
+//     require('intl/local-data/jsonp/en-US-js');
+//     require('intl/local-data/jsonp/es.js');
+// }
+// Implement intl-relativeformat failed because use old version
 // var IntlRelativeFormat = window.IntlRelativeFormat = require('intl-relativeformat');
 
 // import 'intl-relativeformat/dist/locale-date/en.js';
