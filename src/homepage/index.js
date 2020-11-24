@@ -1,36 +1,62 @@
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
-const title = require('title');
+var title = require('title');
+var request = require('superagent');
+var axios = require('axios');
 
 
-page('/', function(ctx, next) {
+
+page('/', loadPicturesFetch, function(ctx, next) {
     title('Platzigram');
     
     var main = document.getElementById('main-container');
 
-    var picture= [
-        {
-            user:{
-                username: 'Gabriel Augusto Rotger',
-                avatar: 'https://media.istockphoto.com/vectors/man-avatar-business-angry-cartoon-illustration-vector-vector-id1277332892'
-            },
-            url: 'https://materializecss.com/images/office.jpg',
-            likes: 0,
-            liked: false,
-            createdAt: new Date()
-        },
-        {
-            user:{
-                username: 'Gabriel Augusto Rotger',
-                avatar: 'https://media.istockphoto.com/vectors/man-avatar-business-angry-cartoon-illustration-vector-vector-id1277332892'
-            },
-            url: 'https://materializecss.com/images/office.jpg',
-            likes: 0,
-            liked: false,
-            createdAt: new Date().setDate(new Date().getDate() - 10)
-        }
-    ]
-
-    empty(main).appendChild(template(picture));//main-container
+    empty(main).appendChild(template(ctx.pictures));
 })
+
+// function loadPictures(ctx, next) {
+//     request
+//     .get('/api/pictures')
+//     .end(function (err, res) {
+//         if (err) { return console.log(err) };
+        
+//         ctx.pictures = res.body;
+//         next();
+//     })
+// }
+
+// function loadPicturesAxios(ctx, next) {
+//     axios
+//     .get('/api/pictures')
+//     .then(function (res) {
+//         ctx.pictures = res.data;
+//         next();
+//     })
+//     .catch(function (err) {
+//         console.error(err)
+//     })
+// }
+
+function loadPicturesFetch(ctx, next) {
+    fetch('/api/pictures')
+    .then(function (res){
+        return res.json();
+    })
+    .then(function (pictures) {
+        ctx.pictures = pictures;
+        next()
+    })
+    .catch(function (err) {
+        console.log(err);
+    })
+}
+
+// async function asyncLoad(ctx, next) {
+//     try {
+//         ctx.pictures = await fetch('/api/pictures').then((res)=> res.json)
+//         next()
+//     } catch (error) {
+//         return  console.log(err);
+//     }
+// }
