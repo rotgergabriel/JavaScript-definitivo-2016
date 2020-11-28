@@ -37,8 +37,8 @@ app.get('/api/pictures', function (req, res, next) {
     var pictures= [
         {
             user:{
-                username: 'Gabriel Augusto Rotger',
-                avatar: 'https://media.istockphoto.com/vectors/man-avatar-business-angry-cartoon-illustration-vector-vector-id1277332892'
+                username: 'anime',
+                avatar: 'https://i.imgur.com/oW1dGDI.jpg'
             },
             url: 'https://materializecss.com/images/office.jpg',
             likes: 0,
@@ -47,8 +47,8 @@ app.get('/api/pictures', function (req, res, next) {
         },
         {
             user:{
-                username: 'Gabriel Augusto Rotger',
-                avatar: 'https://media.istockphoto.com/vectors/man-avatar-business-angry-cartoon-illustration-vector-vector-id1277332892'
+                username: 'anime',
+                avatar: 'https://i.imgur.com/oW1dGDI.jpg'
             },
             url: 'https://materializecss.com/images/office.jpg',
             likes: 0,
@@ -68,6 +68,50 @@ app.post('api/pictures', function(req, res) {
     }
       res.send('file uploaded')
   })
+})
+
+app.get('/api/user/:username', function(req, res) {
+  const user = {
+    username: 'anime',
+    avatar: 'https://i.imgur.com/oW1dGDI.jpg',
+    pictures: [
+      {
+        id: 1,
+        src: 'https://images8.alphacoders.com/915/915180.jpg',
+        likes: 3, 
+      },
+      {
+        id: 2,
+        src: 'https://images4.alphacoders.com/922/thumb-1920-922098.jpg',
+        likes: 3, 
+      },
+      {
+        id: 3,
+        src: 'https://i.pinimg.com/originals/09/0c/39/090c395effbc8ce9b57b0bc1050b3237.jpg',
+        likes: 3, 
+      },
+      {
+        id: 4,
+        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr5_Nbskz517nIE5pIx6bBPuwVAParmDFQ3A&usqp=CAU',
+        likes: 3, 
+      },
+      {
+        id: 5,
+        src: 'https://i.pinimg.com/originals/8e/cb/f0/8ecbf0bf0c9c011fa363fd3098c0da1c.jpg',
+        likes: 3, 
+      },
+      {
+        id: 6,
+        src: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a053feab-0404-42e7-a5e6-5505765b5776/dbcjckk-ef2c9e52-0bf3-4da7-b5ed-0d93c1049a11.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvYTA1M2ZlYWItMDQwNC00MmU3LWE1ZTYtNTUwNTc2NWI1Nzc2XC9kYmNqY2trLWVmMmM5ZTUyLTBiZjMtNGRhNy1iNWVkLTBkOTNjMTA0OWExMS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.ZBEZPhSi3uvJWnuGnegG90yHX4atdZQvJ47LCfm4gMo',
+        likes: 3, 
+      },
+    ]
+  }
+  res.send(user)
+})
+
+app.get('/:username', function (req, res) {
+  res.render('index', { title: `Platizigram - ${req.params.username}` })
 })
 
 app.listen(3000, function (err) {

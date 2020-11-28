@@ -2,31 +2,32 @@ import yo from 'yo-yo'
 import landing from '../landing'
 import layout from '../layout'
 
-export default function userPageTemplate() {
+export default function userPageTemplate(user) {
     
-    var el = yo `<div class="col s12 m7">
-                                    <div class="row">
-                                        <div class="signup-box">
-                                        <h1 class="platzigram">Platzigram</h1>
-                                        <form class="signup-form">
-                                            <div class="section">
-                                            <a class="btn btn-fb hide-on-small-only">Iniciar sesión con Facebook</a>
-                                            <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>Iniciar sesión</a>
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="section">
-                                            <input type="text" name="username" placeholder="Nombre de usuario"/>
-                                            <input type="password" name="password" placeholder="Contraseña"/>
-                                            <button class="btn waves-effect waves-light btn-signup" type="submit">Inicia Sesion</button>
-                                            </div>
-                                        </form>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="login-box">
-                                        ¿No Tienes una cuenta? <a href="/signup">Regístrate</a>
-                                        </div>
-                                    </div>
-                            </div>`;
-                                    
+    var el = yo `<div class="container user-page">
+        <div class="row">
+            <div class="col s12 m10 offset-m1 l8 offset-l2 center-align heading">
+                <div class="row">
+                    <div class="col s12 m10 offset-m1 l3 offset-l3 center">
+                        <img src="${user.avatar}" class="responsive-img circle" />
+                    </div>
+                    <div class="col s12 m10 offset-m1 l6 left-align">
+                        <h2 class="hide-on-large-only center-align">${user.username}</h2>
+                        <h2 class="hide-on-med-and-down left-align">${user.username}</h2>
+                    </div>
+                </div
+            </div>
+                <div class="row">
+                    ${user.pictures.map(function (picture) {
+                        return yo`<div class="col s12 m6 l4">
+                            <div class="picture-container">
+                                <img src"${pictures.src}" class="picture" />
+                                <div class="likes"><i class="fa fa-heart"></i>${pictures.likes}</div>
+                            </div>
+                        </div>`
+                    })}
+                </div>
+        </div>
+    </div>`
+    return layout(el)                            
 }
