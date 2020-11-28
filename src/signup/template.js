@@ -1,5 +1,5 @@
-var yo = require('yo-yo');
-var landing = require('../landing');
+import yo from 'yo-yo'
+import landing from '../landing'
 
 var signupForm = yo `<div class="col s12 m7">
                                 <div class="row">

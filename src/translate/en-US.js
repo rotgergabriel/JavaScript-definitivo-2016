@@ -18,5 +18,5 @@
 //     'signin': 'Signin',
 //     'signin.not-have-account': 'Don\'t have an account?',
 //     'language': 'Language',
-//     'upload-picture': 'subir foto'
+//     'upload-picture': 'upload picture'
 // }
