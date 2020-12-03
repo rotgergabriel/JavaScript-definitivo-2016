@@ -107,7 +107,11 @@ app.get('/api/user/:username', function(req, res) {
       },
     ]
   }
-  res.send(user)
+
+  setTimeout(()=> {
+    res.send(user)
+  },5000)
+
 })
 
 app.get('/:username', function (req, res) {

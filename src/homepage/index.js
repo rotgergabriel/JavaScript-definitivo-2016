@@ -7,6 +7,13 @@ var axios = require('axios');
 
 
 
+// page('/', loading, loadPicturesFetch, function(ctx, next) {
+//     title('Platzigram');
+    
+//     var main = document.getElementById('main-container');
+
+//     empty(main).appendChild(template(ctx.pictures));
+// })
 page('/', loadPicturesFetch, function(ctx, next) {
     title('Platzigram');
     
@@ -14,6 +21,12 @@ page('/', loadPicturesFetch, function(ctx, next) {
 
     empty(main).appendChild(template(ctx.pictures));
 })
+
+// function loading(ctx, next) {
+//     var el = document.createElement('div')
+//     el.classList.add('loader')
+//     document.getElementById('main-container').appendChild(el)
+// }
 
 // function loadPictures(ctx, next) {
 //     request

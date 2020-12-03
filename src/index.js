@@ -6,7 +6,7 @@ var page = require('page');
 // moment.locale('es');
 
 require('./homepage');
-require('./user-page');
+// require('./user-page');
 require('./signup');
 require('./signin');
 

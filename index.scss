@@ -1,6 +1,8 @@
 $secondary-color:#125688;
 
 @import "node_modules/materialize-css/sass/materialize.scss";
+@import "./views/loader.css";
+
 
 body {
     background: #fafafa;

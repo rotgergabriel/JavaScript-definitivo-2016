@@ -51,5 +51,5 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', gulp.series('styles', 'assets', 'build'))
+gulp.task('default', gulp.series('styles', 'assets', 'build'));
 
