@@ -21652,7 +21652,7 @@ function loadPicturesFetch(ctx, next) {
 },{"./template":390,"axios":1,"empty-element":361,"page":371,"superagent":374,"title":384}],390:[function(require,module,exports){
 'use strict';
 
-var _templateObject = _taggedTemplateLiteral(['<div class="container timeline">\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l8 offset-l2 center-align">\n                <form enctype="multipart/form-data" class="form-upload" id="formUpload" onsubmit=', '>\n                    <div id="fileName" class="fileUpload btn btn-flat cyan">\n                        <span><i class="fa fa-camera" aria-hidden="true">Upload</i></span>\n                        <input name="picture" id="file" type="file" class="upload" onchange=', ' />\n                    </div>\n                    <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">Ok</button>\n                    <button id="btnCancel" type="button" class="btn btn-flat red hide" onclick=', '><i class="fa fa-times" aria-hidden="true"></i></button>\n                </form>\n            </div>\n        </div>\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l6 offset-l3">\n                ', '\n            </div>\n        </div>\n    </div>'], ['<div class="container timeline">\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l8 offset-l2 center-align">\n                <form enctype="multipart/form-data" class="form-upload" id="formUpload" onsubmit=', '>\n                    <div id="fileName" class="fileUpload btn btn-flat cyan">\n                        <span><i class="fa fa-camera" aria-hidden="true">Upload</i></span>\n                        <input name="picture" id="file" type="file" class="upload" onchange=', ' />\n                    </div>\n                    <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">Ok</button>\n                    <button id="btnCancel" type="button" class="btn btn-flat red hide" onclick=', '><i class="fa fa-times" aria-hidden="true"></i></button>\n                </form>\n            </div>\n        </div>\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l6 offset-l3">\n                ', '\n            </div>\n        </div>\n    </div>']);
+var _templateObject = _taggedTemplateLiteral(['<div class="container timeline">\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l8 offset-l2 center-align">\n                <form enctype="multipart/form-data" class="form-upload" id="formUpload" onsubmit=', '>\n                    <a class="waves-effect waves-ligth btn">\n                        <i class="fa fa-camera"></i>\n                    <div id="fileName" class="fileUpload btn btn-flat cyan">\n                        <i class="fa fa-cloud-upload" aria-hidden="true">Upload</i>\n                        <input name="picture" id="file" type="file" class="upload" onchange=', ' />\n                    </div>\n                    <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">Ok</button>\n                    <button id="btnCancel" type="button" class="btn btn-flat red hide" onclick=', '><i class="fa fa-times" aria-hidden="true"></i></button>\n                </form>\n            </div>\n        </div>\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l6 offset-l3">\n                ', '\n            </div>\n        </div>\n    </div>'], ['<div class="container timeline">\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l8 offset-l2 center-align">\n                <form enctype="multipart/form-data" class="form-upload" id="formUpload" onsubmit=', '>\n                    <a class="waves-effect waves-ligth btn">\n                        <i class="fa fa-camera"></i>\n                    <div id="fileName" class="fileUpload btn btn-flat cyan">\n                        <i class="fa fa-cloud-upload" aria-hidden="true">Upload</i>\n                        <input name="picture" id="file" type="file" class="upload" onchange=', ' />\n                    </div>\n                    <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">Ok</button>\n                    <button id="btnCancel" type="button" class="btn btn-flat red hide" onclick=', '><i class="fa fa-times" aria-hidden="true"></i></button>\n                </form>\n            </div>\n        </div>\n        <div class="row">\n            <div class="col s12 m10 offset-m1 l6 offset-l3">\n                ', '\n            </div>\n        </div>\n    </div>']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -21740,7 +21740,7 @@ module.exports = function layout(content) {
 },{"yo-yo":387}],394:[function(require,module,exports){
 'use strict';
 
-var _templateObject = _taggedTemplateLiteral(['<div class="card ', '">\n            <div class="card-image waves-effect waves-block waves-light">\n                <img class="activator" src="', '" />\n            </div>\n            <div class="card-content">\n                <a href="/', '" class="card-title">\n                    <img src="', '" class="avatar" />\n                    <span class="username">', '</span>\n                </a>\n                <small class="right time">', '</small>\n                <p>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n                    <span class="left likes">', ' me gusta</span>\n                </p>\n            </div>\n        </div>'], ['<div class="card ', '">\n            <div class="card-image waves-effect waves-block waves-light">\n                <img class="activator" src="', '" />\n            </div>\n            <div class="card-content">\n                <a href="/', '" class="card-title">\n                    <img src="', '" class="avatar" />\n                    <span class="username">', '</span>\n                </a>\n                <small class="right time">', '</small>\n                <p>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n                    <span class="left likes">', ' me gusta</span>\n                </p>\n            </div>\n        </div>']);
+var _templateObject = _taggedTemplateLiteral(['<div class="card ', '">\n            <div class="card-image waves-effect waves-block waves-light">\n                <img class="activator" src="', '" ondblclick=', '/>\n                <i class="fa fa-heart like-heart ', '"></i>\n            </div>\n            <div class="card-content">\n                <a href="/', '" class="card-title">\n                    <img src="', '" class="avatar" />\n                    <span class="username">', '</span>\n                </a>\n                <small class="right time">', '</small>\n                <p>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n                    <span class="left likes">', ' me gusta</span>\n                </p>\n            </div>\n        </div>'], ['<div class="card ', '">\n            <div class="card-image waves-effect waves-block waves-light">\n                <img class="activator" src="', '" ondblclick=', '/>\n                <i class="fa fa-heart like-heart ', '"></i>\n            </div>\n            <div class="card-content">\n                <a href="/', '" class="card-title">\n                    <img src="', '" class="avatar" />\n                    <span class="username">', '</span>\n                </a>\n                <small class="right time">', '</small>\n                <p>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n                    <a class="left" href="#" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n                    <span class="left likes">', ' me gusta</span>\n                </p>\n            </div>\n        </div>']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -21766,7 +21766,7 @@ module.exports = function (pic) {
     var el;
 
     function render(picture) {
-        return yo(_templateObject, picture.liked ? 'liked' : '', picture.url, picture.user.username, picture.user.avatar, picture.user.username, moment(picture.createdAt).fromNow(), like.bind(null, true), like.bind(null, false), picture.likes);
+        return yo(_templateObject, picture.liked ? 'liked' : '', picture.url, like.bind(null, null, true), picture.likedHeart ? 'liked' : '', picture.user.username, picture.user.avatar, picture.user.username, moment(picture.createdAt).fromNow(), like.bind(null, true), like.bind(null, false), picture.likes);
 
         // translate error. return old version because library moment.js error 
         //     function render(picture) {
@@ -21790,11 +21790,27 @@ module.exports = function (pic) {
         // }
     }
 
-    function like(liked) {
-        pic.liked = liked;
+    function like(liked, dbclick) {
+        if (dbclick) {
+            pic.likedHeart = pic.liked = !pic.liked;
+            liked = pic.liked;
+        } else {
+            pic.liked = liked;
+        }
+
         pic.likes += liked ? 1 : -1;
-        var newEl = render(pic);
-        yo.update(el, newEl);
+
+        function doRender() {
+            var newEl = render(pic);
+            yo.update(el, newEl);
+        }
+        doRender();
+
+        setTimeout(function () {
+            pic.likedHeart = false;
+            doRender();
+        }, 1500);
+
         return false;
     }
 

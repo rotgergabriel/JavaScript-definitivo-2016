@@ -40,7 +40,7 @@ app.get('/api/pictures', function (req, res, next) {
                 username: 'anime',
                 avatar: 'https://i.imgur.com/oW1dGDI.jpg'
             },
-            url: 'https://materializecss.com/images/office.jpg',
+            url: 'https://wallpaperarc.com/wp-content/uploads/2020/06/Mikasa-Ackerman-3K-Wallpaper-3200x1800-15.jpg',
             likes: 0,
             liked: false,
             createdAt: new Date()
@@ -50,7 +50,27 @@ app.get('/api/pictures', function (req, res, next) {
                 username: 'anime',
                 avatar: 'https://i.imgur.com/oW1dGDI.jpg'
             },
-            url: 'https://materializecss.com/images/office.jpg',
+            url: 'https://pbs.twimg.com/media/DSBKw_UVwAARi0M.jpg',
+            likes: 0,
+            liked: false,
+            createdAt: new Date().setDate(new Date().getDate() - 10)
+        },
+        {
+            user:{
+                username: 'anime',
+                avatar: 'https://i.imgur.com/oW1dGDI.jpg'
+            },
+            url: 'https://i.pinimg.com/originals/24/b0/f4/24b0f4622c80f839a4ced315e1579893.jpg',
+            likes: 0,
+            liked: false,
+            createdAt: new Date().setDate(new Date().getDate() - 10)
+        },
+        {
+            user:{
+                username: 'anime',
+                avatar: 'https://i.imgur.com/oW1dGDI.jpg'
+            },
+            url: 'https://i.pinimg.com/originals/24/b0/f4/24b0f4622c80f839a4ced315e1579893.jpg',
             likes: 0,
             liked: false,
             createdAt: new Date().setDate(new Date().getDate() - 10)

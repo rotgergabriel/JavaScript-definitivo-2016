@@ -131,7 +131,7 @@ body {
 }
 
 .fileUpload {
-    position: relative;
+    position: absolute;
     overflow: hidden;
     margin: 10px;
 
@@ -146,5 +146,23 @@ body {
         cursor: pointer;
         opacity: 0;
         filter: alpha(opacity=0);
+    }
+}
+
+.like-heart {
+    font-size: 8em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .1s ease;
+    opacity: 0;
+
+    &.liked {
+        color:rgba(255, 0, 0, 0.5);
+        font-size: 8em;
+        display: block;
+        transition: all .5s ease;
+        opacity: 1;
     }
 }
